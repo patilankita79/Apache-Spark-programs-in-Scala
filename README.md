@@ -76,7 +76,7 @@ Sample output:
 A        10
 D        1
 E        51 
-F 	80
+F       	80
 G        3
 
 
