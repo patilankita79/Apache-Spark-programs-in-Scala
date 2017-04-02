@@ -1,0 +1,22 @@
+#Create Dataset
+val Business_Dataset = sc.textFile("file:/C:/scala-practise using spark shell/yelp dataset/business.csv").map(record => record.split("::"))
+val Review_Dataset = sc.textFile("file:/C:/scala-practise using spark shell/yelp dataset/review.csv").map(record => record.split("::"))
+#mapper - map key(business id) and values (full address and category) - in Business
+val Dataset_Business_1=Dataset_Business.map(a=>(a(0),a(1).toString+a(2).toString))
+
+#mapper - map key(business id) and values (stars) - in Review and reduce it by key
+val sum=Dataset_Review.map(a=>(a(2),a(3).toDouble)).reduceByKey((a,b)=>a+b).distinct
+
+#calculate count of key (business id) - in Review
+val count=Dataset_Review.map(a=>(a(2),1)).reduceByKey((a,b)=>a+b).distinct
+
+#join sum and count to get (business id,(sum,count))
+val join_result=sum.join(count)  
+#calculate average for key
+val rating_avg=join_result.map(a=>(a._1,a._2._1/a._2._2)) 
+#join rating_avg and Business Dataset to get (business id,(full address,category,rating_avg))
+val result_final=Dataset_Business_1.join(rating_avg).distinct.collect()
+
+#sort the final result and get top 10 values
+val result_final_sort=result_final.sortWith(_._2._2>_._2._2).take(10)
+result_final_sort.foreach(a=>println(a._1,a._2._1,a._2._2))

@@ -1,0 +1,12 @@
+#Create Dataset
+val Business_Dataset = sc.textFile("file:/C:/scala-practise using spark shell/yelp dataset/business.csv").distinct().map(record => record.split("::"))
+val Review_Dataset = sc.textFile("file:/C:/scala-practise using spark shell/yelp dataset/review.csv").distinct().map(record => record.split("::"))
+
+#filter Business Dataset with “Stanford”
+val filtered_Business_Dataset = Business_Dataset.filter(record => record(1).contains("CA")).filter(record => record(1).contains("Stanford")).map(record=>(record(0).toString,record(1).toString))
+
+#mapper - map key(business id) and values (user id and stars) - in Review
+val Review_map = Review_Dataset.map(record =>(record(2).toString,(record(1).toString,record(3).toDouble)))
+
+val result = Review_map.join(filtered_Business_Dataset)
+result.collect.foreach(record => println(record._2._1))
