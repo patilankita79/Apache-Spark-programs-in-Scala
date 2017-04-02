@@ -57,26 +57,3 @@ Sample output:
 business id               full address           categories                                    avg rating
 xdf12344444444,      CA 91711       List['Local Services', 'Carpet Cleaning']	5.0
 
-Q3:
-Given a file that contains weighted edge information of a directed graph. You have to write a Spak program to calculate the sum of weights of all incoming edges for each node in the graph.
-
-Src	 tgt 	weight 
-A 	D 	1 
-A 	F 	1 
-A 	G 	3 
-B 	E 	51 
-B 	F 	79 
-C 	A 	10
-
-Load the sample file in HDFS and load it from Spark.
-
-You should output in the following format where nodes with no incoming edges will be visible.
-
-Sample output:
-A        10
-D        1
-E        51 
-F       	80
-G        3
-
-
