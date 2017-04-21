@@ -1,7 +1,7 @@
 # Apache-Spark-programs-in-Scala
 
 
-Run the programs using interactive spark shell
+Run the programs in spark using interactive spark shell
 <hr>
 Please use Apache Spark to derive some statistics from Yelp Dataset.
 
