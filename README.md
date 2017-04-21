@@ -60,3 +60,19 @@ Sample output:
 business id               full address           categories                                    avg rating
 xdf12344444444,      CA 91711       List['Local Services', 'Carpet Cleaning']	5.0
 
+
+Q .3
+Q3:
+Given a file that contains weighted edge information of a directed graph. You have to write a Spak program to calculate the sum of weights of all incoming edges for each node in the graph.
+
+Src	 tgt 	weight <br>
+A 	D 	1 <br>
+A 	F 	1 <br>
+A 	G 	3 <br>
+B 	E 	51 <br>
+B 	F 	79 <br>
+C 	A 	10 <br>
+
+Load the sample file in HDFS and load it from Spark.
+
+
