@@ -38,7 +38,8 @@ user_id': (unique user identifier),
 
 After being familiar with the data - you are required to write efficient Spark programs in Java/Scala/Python to find the following information.  You can use spark-shell for scala, or pyspark for python if you are using Spark interactive mode.
 
-NB:            ::  is Column separator  in the files.
+NB:            ::  is Column separator  in the files.<br>
+<hr>
 <b>
 Q1 
 List the 'user id' and 'rating' of users that reviewed businesses located in Stanford </b>
@@ -48,7 +49,8 @@ Sample output
                                                    
 User id	Rating
 0WaCdhr3aXb0G0niwTMGTg	4.0
-
+<br>
+<hr>
 <b>
 Q2:
 List the  business_id , full address and categories of the Top 10 businesses using the average ratings.  
@@ -60,7 +62,8 @@ Sample output:
 business id               full address           categories                                    avg rating
 xdf12344444444,      CA 91711       List['Local Services', 'Carpet Cleaning']	5.0
 
-
+<br>
+<hr>
 <b>
 Q3:
 Given a file that contains weighted edge information of a directed graph. You have to write a Spak program to calculate the sum of weights of all incoming edges for each node in the graph. </b>
